@@ -15,6 +15,11 @@ public class Beat : MonoBehaviour
     private static double beatInterval;
     private float lastTry = 0;
 
+    private void OnValidate()
+    {
+        acceptable = acceptableOffset;
+    }
+
     private void Start()
     {
         beatInterval = 60 / bpm;

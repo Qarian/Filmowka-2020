@@ -6,6 +6,7 @@ using UnityTemplateProjects;
 
 public class Shooting : MonoBehaviour
 {
+    [SerializeField] private Transform rotation;
     [SerializeField] private Transform origin;
     [SerializeField] private float damage = 20;
 
@@ -26,12 +27,14 @@ public class Shooting : MonoBehaviour
     {
         Vector3 pos = transform.position;
         RaycastHit hit;
-        if (!Physics.Raycast(pos, transform.forward, out hit))
+        if (!Physics.Raycast(pos, (rotation.forward), out hit))
             return;
         
         Debug.DrawLine(pos, hit.point, Color.red, 0.3f);
+        Debug.Log(hit.collider.gameObject);
 
         Destroyable other = hit.collider.GetComponent<Destroyable>();
-        other.DealDamage(damage);
+        if (other)
+            other.DealDamage(damage);
     }
 }

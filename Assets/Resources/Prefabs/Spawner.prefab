@@ -109,5 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab:
-  - {fileID: 100000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
-  - {fileID: -927199367670048503, guid: 5090c1d92c3e3034a85460b495fcf820, type: 3}
+  - {fileID: 4156788092518112770, guid: 3f8ecf43a414f98429352a3bd62683cc, type: 3}
+  - {fileID: 6880478825808645593, guid: b66a5e2b61d9cf94e950bb3ddea808c8, type: 3}

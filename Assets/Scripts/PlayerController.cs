@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,6 +19,19 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         transform = ((Component) this).transform;
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -27,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && Beat.TryBeat())
         {
             rb.velocity += Vector3.up * jumpPower;
             isGrounded = false;
@@ -47,7 +61,8 @@ public class PlayerController : MonoBehaviour
         moveCamera.y = Mathf.Clamp(moveCamera.y, -60f, 60f);
         
         
-        camera.localEulerAngles = new Vector3(-moveCamera.y,moveCamera.x,0);
+        camera.localEulerAngles = new Vector3(-moveCamera.y,0,0);
+        transform.localEulerAngles = new Vector3(0,moveCamera.x,0);
     }
 
     void TryMove(Vector3 direction)
