@@ -10,7 +10,6 @@ public class SpawnerManager : MonoBehaviour
    private int index = 0;
        void Start()
        {
-
            coroutine = CallSpawn(spawnCooldown);
            StartCoroutine(coroutine);
        }
