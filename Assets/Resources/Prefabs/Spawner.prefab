@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1311422263112775916}
   - component: {fileID: 1311422263112775917}
   - component: {fileID: 1311422263112775918}
+  - component: {fileID: 2286564870779365922}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -95,3 +96,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2286564870779365922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311422263112775912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2847987aace9fdf43ba8f4ab0b807c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab:
+  - {fileID: 100000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
+  - {fileID: -927199367670048503, guid: 5090c1d92c3e3034a85460b495fcf820, type: 3}

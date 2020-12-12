@@ -9,5 +9,6 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         index = Random.Range (0, EnemyPrefab.Length);
+        Transform.Instantiate(EnemyPrefab[index]);
     }
 }
