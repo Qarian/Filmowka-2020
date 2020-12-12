@@ -13,6 +13,7 @@ public class Beat : MonoBehaviour
     private static double acceptable;
     private static double time = 0;
     private static double beatInterval;
+    private float lastTry = 0;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class Beat : MonoBehaviour
             OnBeat?.Invoke();
             time -= beatInterval;
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && lastTry < Time.time + acceptableOffset/2)
             Debug.Log(TryBeat());
     }
 
