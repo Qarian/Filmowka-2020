@@ -2,13 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Beat : MonoBehaviour
 {
     [SerializeField] private float bpm = 60;
     [SerializeField] private float acceptableOffset = 0.5f;
+    private int index = 0;
 
     public static Action OnBeat;
+    
+    [SerializeField] private  Color[] colors;
+    public static Color selectedColor;
+
 
     private static double acceptable;
     private static double time = 0;
@@ -32,6 +38,8 @@ public class Beat : MonoBehaviour
         time += Time.fixedDeltaTime;
         if (time >= beatInterval)
         {
+            index = Random.Range(0, colors.Length);
+            selectedColor = colors[index];
             OnBeat?.Invoke();
             time -= beatInterval;
         }
@@ -44,5 +52,7 @@ public class Beat : MonoBehaviour
         double offset = Mathf.Min((float)time,(float) (beatInterval - time));
         return offset < acceptable;
     }
+    
+    
     
 }

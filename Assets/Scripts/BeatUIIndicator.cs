@@ -25,7 +25,7 @@ public class BeatUIIndicator : MonoBehaviour
     {
         if (image is null)
             image = GetComponent<Image>();
-
+        image.color = Beat.selectedColor;
         image.DOFade(1, duration).From();
     }
 }
