@@ -4,12 +4,7 @@ using UnityEngine;
 public class Destroyable : MonoBehaviour
 {
     [SerializeField] private float health = 100;
-    private ParticleSystem particleSystem;
-
-    private void Awake()
-    {
-        particleSystem = Resources.Load<ParticleSystem>("uderzenie");
-    }
+    [SerializeField] private ParticleSystem particleSystem;
 
     public void DealDamage(float damage)
     {
@@ -21,9 +16,11 @@ public class Destroyable : MonoBehaviour
     private void Destroy()
     {
         Points.points += 1;
-        Destroy(gameObject);
+        
+        particleSystem.transform.SetParent(null);
         particleSystem.Play();
-
+        
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision other)
