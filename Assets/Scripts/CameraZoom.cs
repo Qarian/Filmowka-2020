@@ -11,11 +11,16 @@ public class CameraZoom : MonoBehaviour
     {
         camera = Camera.main;
     }
+    
+    
 
-    private void OnBeat()
+    private void OnBeaCamerat()
     {
-        camera.DOFieldOfView(camera.fieldOfView + 0.1f, 0.1f);
-        camera.DOFieldOfView(camera.fieldOfView - 0.1f, 0.1f);
+        Debug.LogError("DUASDJSAD");
+        var seq = DOTween.Sequence();
+        seq.Append( camera.DOFieldOfView(camera.fieldOfView + 10f, 0.1f));
+        seq.Append( camera.DOFieldOfView(camera.fieldOfView - 10f, 0.1f));
+       seq.Play();
 
     }
 }
