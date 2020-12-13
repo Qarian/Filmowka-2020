@@ -1,28 +1,25 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UnityTemplateProjects
+public class Destroyable : MonoBehaviour
 {
-    public class Destroyable : MonoBehaviour
+    [SerializeField] private float health = 100;
+
+    public void DealDamage(float damage)
     {
-        [SerializeField] private float health = 100;
+        health -= damage;
+        if (health <= 0)
+            Destroy();
+    }
 
-        public void DealDamage(float damage)
-        {
-            health -= damage;
-            if (health <= 0)
-                Destroy();
-        }
+    private void Destroy()
+    {
+        Destroy(gameObject);
+    }
 
-        private void Destroy()
-        {
-            Destroy(gameObject);
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            other.collider.GetComponent<PlayerController>();
-            Debug.Log("Koniec gry");
-        }
+    private void OnCollisionEnter(Collision other)
+    {
+        other.collider.GetComponent<PlayerController>();
+        Debug.Log("Koniec gry");
     }
 }
