@@ -20,9 +20,9 @@ public class Destroyable : MonoBehaviour
 
     private void Destroy()
     {
-        particleSystem.transform.position = gameObject.transform.position;
-        particleSystem.Play();
+        Points.points += 1;
         Destroy(gameObject);
+        particleSystem.Play();
 
     }
 
