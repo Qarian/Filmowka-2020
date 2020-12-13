@@ -4,6 +4,12 @@ using UnityEngine;
 public class Destroyable : MonoBehaviour
 {
     [SerializeField] private float health = 100;
+    private ParticleSystem particleSystem;
+
+    private void Awake()
+    {
+        particleSystem = Resources.Load<ParticleSystem>("uderzenie");
+    }
 
     public void DealDamage(float damage)
     {
@@ -15,6 +21,8 @@ public class Destroyable : MonoBehaviour
     private void Destroy()
     {
         Destroy(gameObject);
+        particleSystem.Play();
+
     }
 
     private void OnCollisionEnter(Collision other)
