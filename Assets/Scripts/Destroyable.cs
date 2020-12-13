@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace UnityTemplateProjects
 {
@@ -16,6 +17,12 @@ namespace UnityTemplateProjects
         private void Destroy()
         {
             Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            other.collider.GetComponent<PlayerController>();
+            Debug.Log("Koniec gry");
         }
     }
 }

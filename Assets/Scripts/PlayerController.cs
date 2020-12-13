@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveCamera;
     private Rigidbody rb;
     private new Transform transform;
+    public static Vector3 playerPos;
 
     private void Awake()
     {
@@ -59,10 +60,11 @@ public class PlayerController : MonoBehaviour
         
         moveCamera += new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") );
         moveCamera.y = Mathf.Clamp(moveCamera.y, -60f, 60f);
-        
-        
-        camera.localEulerAngles = new Vector3(-moveCamera.y,0,0);
-        transform.localEulerAngles = new Vector3(0,moveCamera.x,0);
+
+        camera.localEulerAngles = new Vector3(-moveCamera.y, 0, 0);
+        transform.localEulerAngles = new Vector3(0, moveCamera.x, 0);
+
+        playerPos = transform.position;
     }
 
     void TryMove(Vector3 direction)
