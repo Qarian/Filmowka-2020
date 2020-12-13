@@ -20,6 +20,7 @@ public class Destroyable : MonoBehaviour
 
     private void Destroy()
     {
+        Points.points += 1;
         Destroy(gameObject);
         particleSystem.Play();
 
